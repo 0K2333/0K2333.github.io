@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>// 复制提醒
+// 复制提醒
 document.addEventListener("copy", function () {
     debounce(function () {
         new Vue({
@@ -51,17 +51,17 @@ function share() {
     debounce(share_, 300);
 }
 
-new Vue({
-    data: function () {
-        this.$message({
-            title: "成功复制分享链接😜",
-            message: "您现在可以通过粘贴直接和小伙伴分享啦🍾",
-            position: 'top-left',
-            offset: 50,
-            showClose: true,
-            type: "success",
-            duration: 5000
-        });
-    }
-})
+// new Vue({
+//     data: function () {
+//         this.$message({
+//             title: "成功复制分享链接😜",
+//             message: "您现在可以通过粘贴直接和小伙伴分享啦🍾",
+//             position: 'top-left',
+//             offset: 50,
+//             showClose: true,
+//             type: "success",
+//             duration: 5000
+//         });
+//     }
+// })
 

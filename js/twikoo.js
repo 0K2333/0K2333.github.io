@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>// 切换热评
+// 切换热评
 function switchCommentBarrage () {
     let flag = window.localStorage.getItem('commentBarrageDisplay') // undefined || false
     document.getElementById('comment-barrage').style.display = flag === 'false' ? 'block' : 'none'

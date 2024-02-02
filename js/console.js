@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>var now1 = new Date();
+var now1 = new Date();
 
 function createtime1() {
     var grt = new Date("08/09/2022 00:00:00"); //此处修改你的建站时间或者网站上线时间

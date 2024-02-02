@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>// 如果当前页有评论就执行函数
+// 如果当前页有评论就执行函数
 if (document.getElementById('post-comment')) owoBig();
 // 表情放大
 function owoBig() {

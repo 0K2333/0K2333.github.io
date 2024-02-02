@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>function switchPostChart () {
+function switchPostChart () {
     // 这里为了统一颜色选取的是“明暗模式”下的两种字体颜色，也可以自己定义
     let color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4C4948' : 'rgba(255,255,255,0.7)'
     if (document.getElementById('posts-chart') && postsOption) {
