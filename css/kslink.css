@@ -9,10 +9,10 @@
     transition: .2s;
     display: flex;
     margin: 5px auto;
-    color: var(--global-bg);
+    color: rgb(252,211,55);
     padding: 15px;
     border-radius: 40px;
-    background: var(--search-result-title);
+    background: rgb(22,94,171);
     align-items: center;
 }
 

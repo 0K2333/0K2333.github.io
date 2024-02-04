@@ -4,7 +4,7 @@
     width: 16px;
     height: 16px;
     /* 这里改变跟随的底色 */
-    background: rgb(57, 197, 187);
+    background: rgb(2, 196, 154);
     border-radius: 8px;
     opacity: 0.25;
     z-index: 10086;
@@ -225,7 +225,7 @@ h6::before {
 /* 5.评论输入提醒 */
 /* 设置文字内容 :nth-child(1)的作用是选择第几个 */
 .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before {
-    content: '输入QQ号会自动获取昵称和头像🐧';
+    content: '输入QQ号会自动获取昵称和头像🐧，当然也可以随便输入啥！';
 }
 
 .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(2):before {
@@ -291,7 +291,7 @@ h6::before {
 /* 7.博客宽屏适配 */
 /* 全局宽度 */
 .layout {
-  max-width: 1400px;
+  max-width: 1500px;
 }
 
 /* 侧边卡片栏宽度 */
@@ -813,7 +813,7 @@ center#name-container {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(73, 177, 245);
+  background-color: rgb(57, 197, 187);
   border-radius: 2em;
 }
 
@@ -833,7 +833,7 @@ center#name-container {
 }
 
 ::-webkit-scrollbar-corner {
-  background-color: transparent;
+  background-color: rgb(57, 197, 187);
 }
 
 ::-moz-selection {
@@ -920,4 +920,20 @@ center#name-container {
   background-color: rgba(0, 0, 0, .1);
 }
 
-/* 23. */
+/*23. 哔哩哔哩视频适配*/
+.aspect-ratio {
+  position: relative;
+  width: 90%;
+  height: auto;
+  padding-bottom: 75%;
+  margin: 3% auto;
+  text-align: center;
+}
+.aspect-ratio iframe {
+  position: absolute;
+  width: 100%;
+  height: 86%;
+  left: 0;
+  top: 0;
+}
+/* 24. */

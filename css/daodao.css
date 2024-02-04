@@ -1,0 +1,115 @@
+/* 主页哔哔bb */
+#bber-talk {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#bber-talk .li-style {
+    width: 100%;
+    /* height: 25px; */
+    text-align: center;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: 0.3s;
+    font-weight: 700;
+    margin: auto;
+    opacity: .8;
+}
+
+#bber-talk .li-style:hover{
+    color: rgb(128,118,163);
+    opacity: .8;
+}
+
+#bber-talk ul,li{
+    list-style:none;
+    /* display: flex; */
+    margin: 0px;
+    padding: 0;
+    opacity: .8;
+}
+
+#bbTimeList{
+    background: var(--card-bg);
+    color: var(--font-color);
+    margin-top: 1rem;
+    padding: 0.6rem 1rem 0.5rem 1rem;
+    border-radius: 12px;
+    box-shadow: var(--heo-shadow-lightblack);
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 1rem;
+    border: var(--style-border);    
+    transition: .3s;
+    align-items: center;
+    /* height: 50px; */
+    opacity: .8;
+}
+
+#bbtalk{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+    
+}
+
+@media screen and (min-width: 768px) {
+    #bbTimeList:hover {
+        border:var(--style-border-hover);
+        box-shadow: var(--heo-shadow-main);
+        background: rgb(87, 195, 194)
+        
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    #bbTimeList {
+        margin-bottom:.5rem;
+        animation: slide-in .6s 0s backwards
+        
+    }
+}
+
+.bber-gotobb {
+    line-height: 25px;
+    margin-left: 1rem;
+    transition: .3s;
+    cursor: pointer
+    
+}
+
+.bber-gotobb:hover {
+    opacity: .8;
+    color: rgb(128,118,163)
+}
+
+i.bber-gotobb {
+    font-size: 16px
+    
+}
+
+.icon-bblogo {
+    font-size: 2rem;
+    font-size: 2rem;
+    line-height: 22px;
+    margin-right: 1rem;
+    transition: .3s;
+    cursor: pointer
+    
+}
+
+.icon-bblogo:hover {
+    opacity: .8;
+    color: var(--heo-theme)
+    
+}

@@ -1498,7 +1498,7 @@ body {
 }
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-color) transparent;
+  scrollbar-color: #39c5bb transparent;
 }
 input::placeholder {
   color: var(--font-color);
