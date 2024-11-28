@@ -1508,7 +1508,7 @@ input::placeholder {
   z-index: -999;
   width: 100%;
   height: 100%;
-  background: url(https://picbed.lazy-a.top/img/dragon4.jpg);
+  background: url(https://picbed.lazy-a.top/img/sw9.jpg);
   background-attachment: local;
   background-position: center;
   background-size: cover;
@@ -5727,7 +5727,7 @@ mjx-assistive-mml {
   }
 }
 [data-theme="dark"] #web_bg {
-  background: url(https://picbed.lazy-a.top/img/xuexi.jpg);
+  background: url(https://picbed.lazy-a.top/img/sw2.jpg);
   background-attachment: local;
   background-position: center;
   background-size: cover;
@@ -5735,14 +5735,14 @@ mjx-assistive-mml {
 }
 @media screen and (max-width: 800px) {
   #web_bg {
-    background: url(https://picbed.lazy-a.top/img/nike.jpg) !important;
+    background: url(https://picbed.lazy-a.top/img/sw7.jpg) !important;
     background-attachment: local !important;
     background-position: center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
   }
   [data-theme="dark"] #web_bg {
-    background: url(https://picbed.lazy-a.top/img/xiaowangzi.jpg) !important;
+    background: url(https://picbed.lazy-a.top/img/sw15.jpg) !important;
     background-attachment: local !important;
     background-position: center !important;
     background-size: cover !important;

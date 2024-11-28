@@ -640,13 +640,13 @@ h6::before {
 
 /* 16.个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(https://picbed.lazy-a.top/img/dragon2.jpg);
+  background-image: url(https://picbed.lazy-a.top/img/sw15.jpg);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 125%;
 }
 [data-theme="dark"] #aside-content > .card-widget.card-info {
-  background-image: url(https://picbed.lazy-a.top/img/xiaowangzi.jpg);
+  background-image: url(https://picbed.lazy-a.top/img/sw16.jpg);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
