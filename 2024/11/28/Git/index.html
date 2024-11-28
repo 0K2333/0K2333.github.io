@@ -1,0 +1,990 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Git | 懒总不想学习想睡觉💤</title><meta name="author" content="懒总不想学习想睡觉"><meta name="copyright" content="懒总不想学习想睡觉"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="英伟达二面被三个面试官轮流拷打，我学，这就学✊！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="https://www.lazy-a.top/2024/11/28/Git/index.html">
+<meta property="og:site_name" content="懒总不想学习想睡觉💤">
+<meta property="og:description" content="英伟达二面被三个面试官轮流拷打，我学，这就学✊！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picbed.lazy-a.top/img/default_cover_8.webp">
+<meta property="article:published_time" content="2024-11-28T02:22:10.000Z">
+<meta property="article:modified_time" content="2024-11-28T02:38:12.000Z">
+<meta property="article:author" content="懒总不想学习想睡觉">
+<meta property="article:tag" content="研狗">
+<meta property="article:tag" content="自救指南">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picbed.lazy-a.top/img/default_cover_8.webp"><link rel="shortcut icon" href="https://picbed.lazy-a.top/img/logo.png"><link rel="canonical" href="https://www.lazy-a.top/2024/11/28/Git/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"2RYZ03V6OY","apiKey":"227110fff11b7d95e58c1649a6e2d3ef","indexName":"hexo","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Git',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-11-28 10:38:12'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><style id="themeColor"></style><style id="rightSide"></style><style id="transPercent"></style><style id="blurNum"></style><style id="settingStyle"></style><span id="fps"></span><style id="defineBg"></style><style id="menu_shadow"></style><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/progress_bar.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/emoji.css"><link rel="stylesheet" href="/css/kslink.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/runtime.css"><link rel="stylesheet" href="/css/universe.css"><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css"><script data-pjax src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.js"></script><link rel="stylesheet" href="/css/twikoo.css"><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><script src="https://npm.elemecdn.com/echarts@4.9.0/map/js/china.js"></script><script src="https://hm.baidu.com/hm.js?b122f5ec89365d3838edfe0292e48730"></script><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="Lazyの安全屋"><link rel="bookmark" href="https://picbed.lazy-a.top/img/logo.png"><link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://picbed.lazy-a.top/img/logo.png" ><link rel="stylesheet" href="/css/essay_page.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="/css/daodao.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zyoushuo/Blog@latest/hexo/css/loading_style_1.css" ><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zyoushuo/Blog@latest/hexo/css/loading_style_2.css" ><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="gear-loader"><div class="gear-loader_overlay"></div><div class="gear-loader_cogs"><div class="gear-loader_cogs__top"><div class="gear-top_part"></div><div class="gear-top_part"></div><div class="gear-top_part"></div><div class="gear-top_hole"></div></div><div class="gear-loader_cogs__left"><div class="gear-left_part"></div><div class="gear-left_part"></div><div class="gear-left_part"></div><div class="gear-left_hole"></div></div><div class="gear-loader_cogs__bottom"><div class="gear-bottom_part"></div><div class="gear-bottom_part"></div><div class="gear-bottom_part"></div><div class="gear-bottom_hole"></div></div></div></div></div><script async="async">var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').style.transition = 'opacity 3s ease 0s'
+    document.getElementById('loading-box').style.opacity = '0'
+    setTimeout(function(){
+      document.getElementById('loading-box').classList.add("loaded")
+    }, 3000);
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').style.transition = '';
+    document.getElementById('loading-box').style.opacity = '1'
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 5000);
+document.getElementById('loading-box').addEventListener('click',()=> {preloader.endLoading()})</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/chengxuyuan.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Home"></use></svg><span> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xiewenzhang "></use></svg><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xiangmuguidangdangancundang ">                   </use></svg><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/article/tags/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian ">                   </use></svg><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/article/categories/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei1 ">                   </use></svg><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-self-motivation-online-education-learning-success "></use></svg><span> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/relax/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yinle-leqi-music-instrume ">                   </use></svg><span> 音乐厅</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/relax/movies/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-icon-test ">                   </use></svg><span> 放映厅</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/relax/play/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-wanyiwan ">                   </use></svg><span> 摸鱼厅</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-bojuelvpai-bieshu "></use></svg><span> 安全屋</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/personal/daodao/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-jaeger ">                   </use></svg><span> 叨叨</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/friend/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-001-sisters ">                   </use></svg><span> 姐妹</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/everything/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-hezi ">                   </use></svg><span> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-guanyuwomen "></use></svg><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/charts/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-leidatu ">                   </use></svg><span> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/about/census/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-wangzhan ">                   </use></svg><span> 网站统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/about/link/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-bianzu47 ">                   </use></svg><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-liuyanmoban"></use></svg><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://picbed.lazy-a.top/img/default_cover_8.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="懒总不想学习想睡觉💤"><span class="site-name">懒总不想学习想睡觉💤</span></a></span><div id="he-plugin-simple"> </div><div id="none_space"></div><div id="menus"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:24px;width:24px;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Home"></use></svg><span> 首页</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xiewenzhang "></use></svg><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xiangmuguidangdangancundang ">                   </use></svg><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/article/tags/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-biaoqian ">                   </use></svg><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/article/categories/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-fenlei1 ">                   </use></svg><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-self-motivation-online-education-learning-success "></use></svg><span> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/relax/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yinle-leqi-music-instrume ">                   </use></svg><span> 音乐厅</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/relax/movies/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-icon-test ">                   </use></svg><span> 放映厅</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/relax/play/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-wanyiwan ">                   </use></svg><span> 摸鱼厅</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-bojuelvpai-bieshu "></use></svg><span> 安全屋</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/personal/daodao/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-jaeger ">                   </use></svg><span> 叨叨</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/friend/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-001-sisters ">                   </use></svg><span> 姐妹</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/personal/everything/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-hezi ">                   </use></svg><span> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page group faa-parent animated-hover hide" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-guanyuwomen "></use></svg><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/charts/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-leidatu ">                   </use></svg><span> 文章统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/about/census/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-wangzhan ">                   </use></svg><span> 网站统计</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/about/link/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-bianzu47 ">                   </use></svg><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/comments/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-liuyanmoban"></use></svg><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-28T02:22:10.000Z" title="发表于 2024-11-28 10:22:10">2024-11-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-28T02:38:12.000Z" title="更新于 2024-11-28 10:38:12">2024-11-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A0%94%E7%8B%97/">研狗</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A0%94%E7%8B%97/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A0%94%E7%8B%97/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/">自救指南</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4737</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>15分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Git"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/11/28/Git/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在刚刚结束的NVIDIA面试中，连续被三个面试官拷打，经过了解，具有很强的实用意义。须掌握。<br> Rating:: 🌟🌟🌟🌟🌟<br> 安装地址：<a target="_blank" rel="noopener" href="https://git-scm.com/download">Git</a><br> 安装教程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35206244/article/details/97698815">Git基本使用教程（一）：入门及第一次基本完整操作_git的使用-CSDN博客</a></p>
+<hr>
+<h1 id="Git是什么"><a href="#Git是什么" class="headerlink" title="Git是什么"></a>Git是什么</h1><p>Git 是一种 <strong>分布式版本控制系统</strong>，用来高效地管理代码的修改历史和协作开发。它帮助开发者记录每一次代码的更改，便于回溯历史、恢复代码和多人协作。搭建Git远程仓库可以借助互联网上的代码托管服务来实现，常用的有：GitHub、GitLab、码云</p>
+<blockquote>
+<p>Github是什么？<br>一个基于 Git面向开源及私有软件项目的托管平台，为开发者提供了管理代码、协作开发和部署项目的工具和环境，因为只支持Git 作为唯一的版本库格式进行托管，故名GitHub</p>
+</blockquote>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>Git 的运行机制基于以下几个核心区域：</p>
+<ol>
+<li><strong>工作区（Working Directory）</strong><ul>
+<li>这是开发者正在实际编辑代码的地方，也就是本地文件系统中的项目文件夹。</li>
+<li>你对文件的修改、添加或删除，首先都发生在这里。</li>
+</ul>
+</li>
+<li><strong>暂存区（Staging Area）</strong><ul>
+<li>暂存区是一个临时区域，用于存放即将提交到版本库的修改，暂存区允许开发者将代码修改分组，为不同功能生成独立的提交记录，在提交前检查暂存内容，避免将未完成的代码误提交。</li>
+<li>当你用 <code>git add</code> 将文件添加到暂存区时，Git 会将这些修改标记为“即将提交”。</li>
+<li>这样，你可以选择性地提交部分修改，而不是一次提交所有工作区的变更。</li>
+</ul>
+</li>
+<li><strong>本地仓库（Local Repository）</strong><ul>
+<li>本地仓库是你电脑上的一个数据库，存储了所有提交的代码版本和历史。</li>
+<li>用 <code>git commit</code> 命令，将暂存区的修改提交到本地仓库，生成一个新的快照。</li>
+<li>每次提交都会创建一个独特的提交 ID，方便未来查找和回溯。</li>
+</ul>
+</li>
+<li><strong>远程仓库（Remote Repository）</strong><ul>
+<li>远程仓库是托管在云端或服务器上的代码库（如 GitHub、GitLab、Bitbucket）。</li>
+<li>通过 <code>git push</code>，你可以将本地仓库的内容上传到远程仓库，方便团队共享代码。</li>
+</ul>
+</li>
+</ol>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><p>Clone：克隆，就是将远程仓库复制到本地<br>Push：推送，就是将本地仓库代码上传到远程仓库<br>Pull：拉取，就是将远程仓库代码下载到本地仓库<br>工作流程如下：<br>    1．从远程仓库中克隆代码到本地仓库<br>    2．从本地仓库中checkout代码然后在<font color="#ff0000">工作区</font>进行代码修改<br>    3．在提交前先使用 <code>git add 文件名</code>将代码提交到<font color="#ff0000">暂存区</font> ，如果要暂存所有更改，可以用 <code>git add .</code>。<br>    4．使用 <code>git commit -m &quot;提交说明&quot;</code>提交到<font color="#ff0000">本地仓库</font>。本地仓库中保存修改的各个历史版本<br>    5．修改完成后，需要和团队成员共享代码时，使用 <code>git push</code> 将本地仓库的内容push到<font color="#ff0000">远程仓库</font><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i-blog.csdnimg.cn/blog_migrate/7c537ec949ab678006f585b798a3a45e.png" alt="怎么打不开了"><br>Git GUI：Git提供的图形界面工具<br>Git Bash：Git提供的命令行工具</p>
+<h2 id="常见术语解读"><a href="#常见术语解读" class="headerlink" title="常见术语解读"></a>常见术语解读</h2><ul>
+<li><strong>版本库（Repository）</strong><ul>
+<li>存储项目所有的历史记录，包括代码和提交历史。</li>
+</ul>
+</li>
+<li><strong>快照（Snapshot）</strong><ul>
+<li>每次提交时，Git 会为当前代码生成一个快照，保存文件的状态。</li>
+</ul>
+</li>
+<li><strong>分支（Branch）</strong><ul>
+<li>分支是代码开发的并行版本，便于开发新功能而不影响主代码。</li>
+</ul>
+</li>
+<li><strong>合并（Merge）</strong><ul>
+<li>将一个分支的代码合并到另一个分支。</li>
+</ul>
+</li>
+<li><strong>冲突（Conflict）</strong><ul>
+<li>当不同分支的代码修改同一部分内容时，合并可能产生冲突，需要手动解决。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Git的优势"><a href="#Git的优势" class="headerlink" title="Git的优势"></a>Git的优势</h2><ul>
+<li><strong>分布式架构</strong>：每个开发者的本地仓库都是完整的版本库。</li>
+<li><strong>高效管理代码</strong>：可以回溯历史、恢复错误的提交。</li>
+<li><strong>轻量分支</strong>：创建和切换分支速度快，便于多人协作开发。</li>
+<li><strong>离线操作</strong>：大部分操作无需联网即可完成。</li>
+</ul>
+<hr>
+<h1 id="Git与SVN对比"><a href="#Git与SVN对比" class="headerlink" title="Git与SVN对比"></a>Git与SVN对比</h1><p>都是常用的版本控制工具，但是在架构、功能和使用场景上存在显著差异。</p>
+<h2 id="SVN"><a href="#SVN" class="headerlink" title="SVN"></a>SVN</h2><p>集中式版本控制系统，依赖于中央服务器，开发者从服务器检出代码进行操作，仅在中央服务器上存储完整的历史记录，客户端只保留当前的工作副本。<br>缺点</p>
+<pre><code>1. 服务器单点故障
+2. 容错性差
+</code></pre><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>分布式版本控制系统，每个开发者的本地仓库都是完整的版本库，支持离线工作，每个克隆的仓库包含完整的历史记录和所有文件的快照。<br>分为两种类型的仓库：本地仓库和远程仓库</p>
+<blockquote>
+<p>本地仓库：在开发人员自己电脑上的Git仓库<br>远程仓库：在远程服务器上的Git仓库</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Git</th>
+<th>SVN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>架构</strong></td>
+<td>分布式</td>
+<td>集中式</td>
+</tr>
+<tr>
+<td><strong>离线操作</strong></td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>分支管理</strong></td>
+<td>高效轻量</td>
+<td>笨重复杂</td>
+</tr>
+<tr>
+<td><strong>学习成本</strong></td>
+<td>较高</td>
+<td>较低</td>
+</tr>
+<tr>
+<td><strong>数据安全</strong></td>
+<td>更安全</td>
+<td>依赖服务器</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>大型项目、分布式团队</td>
+<td>小型项目、集中化团队</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h1 id="Git配置流程及指令"><a href="#Git配置流程及指令" class="headerlink" title="Git配置流程及指令"></a>Git配置流程及指令</h1><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>设置用户名称和email地址，每次Git提交都会使用该用户信息<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">%% 设置用户信息 %%</span><br><span class="line">git config --global user.name “itcast”  </span><br><span class="line">git config --global user.email “kinggm520@163.com”</span><br><span class="line">%% 查看配置信息 %%</span><br><span class="line">git config --list  </span><br><span class="line">git config user.name</span><br></pre></td></tr></table></figure><br>通过上面的命令设置的信息会保存在~/.gitconfig文件中</p>
+<h2 id="获取Git仓库"><a href="#获取Git仓库" class="headerlink" title="获取Git仓库"></a>获取Git仓库</h2><p>两种方式：</p>
+<ol>
+<li>在本地初始化一个Git仓库</li>
+<li>从远程仓库克隆</li>
+</ol>
+<h3 id="本地初始化"><a href="#本地初始化" class="headerlink" title="本地初始化"></a>本地初始化</h3><ol>
+<li>创建空目录作为本地仓库</li>
+<li>打开Git bash</li>
+<li>执行<code>Git init</code></li>
+</ol>
+<h3 id="远程克隆"><a href="#远程克隆" class="headerlink" title="远程克隆"></a>远程克隆</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone 地址链接</span><br></pre></td></tr></table></figure>
+<h2 id="工作目录、暂存区、版本库"><a href="#工作目录、暂存区、版本库" class="headerlink" title="工作目录、暂存区、版本库"></a>工作目录、暂存区、版本库</h2><p><code>.git</code>文件夹：版本库，存储配置信息、日志信息和文件版本信息<br><code>index</code>文件：暂存区，stage，临时保存修改文件的地方<br><code>.gitignore</code>文件夹：忽略列表，列出要忽略的文件模式<br>工作目录：存放.git文件夹的目录，用来存放开发的代码</p>
+<h2 id="文件的两种状态"><a href="#文件的两种状态" class="headerlink" title="文件的两种状态"></a>文件的两种状态</h2><ul>
+<li>untracked 未跟踪（未被纳入版本控制）</li>
+<li>tracked 已跟踪（被纳入版本控制）</li>
+<li>Unmodified 未修改状态</li>
+<li>Modified 已修改状态</li>
+<li>Staged 已暂存状态<br>这些文件的状态会随着我们执行Git的命令发生变化</li>
+</ul>
+<h2 id="本地仓库操作"><a href="#本地仓库操作" class="headerlink" title="本地仓库操作"></a>本地仓库操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git status  (-s)  %%查看文件状态%%</span><br><span class="line">git add             %%将未跟踪的文件加入暂存区%%</span><br><span class="line">git reset           %%将暂存区的文件取消暂存%%</span><br><span class="line">git commit      %%将暂存区的文件修改提交到本地仓库%%</span><br><span class="line">git rm              %%删除文件%%</span><br></pre></td></tr></table></figure>
+<h2 id="远程仓库操作"><a href="#远程仓库操作" class="headerlink" title="远程仓库操作"></a>远程仓库操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git remote (-v)                                              %%查看已经配置的远程仓库服务器%%</span><br><span class="line">git remote add &lt; shortname&gt; &lt; url&gt;            %%添加一个新的远程 Git 仓库%%</span><br><span class="line">git clone [url]                                               %%从远程仓库克隆%%</span><br><span class="line">git remote rm                                               %%移除本地无效的远程仓库%%</span><br><span class="line">git fetch                                                       %%从远程仓库获取最新版本到本地仓库，不会自动merge%%</span><br><span class="line">git merge A/B                                              %%merge A/B%%</span><br><span class="line">git pull A B –allow-unrelated-histories /git pull --rebase origin master  %%从远程仓库获取最新版本并merge到本地仓库%%</span><br><span class="line">git branch --set-upstream-to origin/master master   %%将本地分支与远程分支关联%%</span><br><span class="line">git push [remote-name] [branch-name]        %%推送到远程仓库%%</span><br></pre></td></tr></table></figure>
+<h2 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git branch  %%列出所有本地分支%%</span><br><span class="line">git branch -r  %%列出所有远程分支%%</span><br><span class="line">git branch -a   %%列出所有本地分支和远程分支%%  </span><br><span class="line">git branch [name]    %%创建分支%%</span><br><span class="line">git checkout [name]    %%切换分支%%</span><br><span class="line">git push [remote_name] [name]     %%推送至远程仓库分支%%</span><br><span class="line">git merge %%合并分支%%</span><br><span class="line">git branch -d/-D [name] %%删除分支%%</span><br></pre></td></tr></table></figure>
+<h2 id="Git标签"><a href="#Git标签" class="headerlink" title="Git标签"></a>Git标签</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git tag  %%列出所有tag%%</span><br><span class="line">git show [tag]  %%查看tag信息%%</span><br><span class="line">git tag [tagname]   %%新建一个tag%%  </span><br><span class="line">git push [remote] [tag]    %%将标签推送至远程仓库%%</span><br><span class="line">git checkout -b [branch] [tag]    %%新建一个分支，指向某个tag%%</span><br><span class="line">git tag -d [tag]     %%删除本地tag%%</span><br><span class="line">git push origin :refs/tags/[tag]  %%删除远程tag%%</span><br><span class="line">git branch -d/-D [name] %%删除分支%%</span><br></pre></td></tr></table></figure>
+<h2 id="IntelliJ-IDEA使用Git"><a href="#IntelliJ-IDEA使用Git" class="headerlink" title="IntelliJ IDEA使用Git"></a>IntelliJ IDEA使用Git</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37883866/article/details/105349257">超详细的Git使用教程(图文)-CSDN博客</a></p>
+<h2 id="回滚代码"><a href="#回滚代码" class="headerlink" title="回滚代码"></a>回滚代码</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37883866/article/details/114375872">Git回滚远程仓库代码_git 远程代码仓回滚‘-CSDN博客</a></p>
+<hr>
+<h1 id="GitHub配置流程"><a href="#GitHub配置流程" class="headerlink" title="GitHub配置流程"></a>GitHub配置流程</h1><ol>
+<li>注册账号</li>
+<li>建立本地仓库 git init</li>
+<li>生成SSH<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;注册名&quot;</span><br><span class="line">git config --global user.email &quot;注册邮箱&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;自己的邮箱&quot;</span><br></pre></td></tr></table></figure></li>
+<li>Github使用SSH建立远程仓库连接测试</li>
+<li>测试SSH连接<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></li>
+<li>推送本地文件到远程<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="SSH是什么"><a href="#SSH是什么" class="headerlink" title="SSH是什么"></a>SSH是什么</h2><p>Secure Shell(SSH) 是由 IETF(The Internet Engineering Task Force) 制定的建立在应用层基础上的安全网络协议。它是专为远程登录会话(甚至可以用Windows远程登录Linux服务器进行文件互传)和其他网络服务提供安全性的协议，可有效弥补网络中的漏洞。通过SSH，可以把所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。还有一个额外的好处就是传输的数据是经过压缩的，所以可以加快传输的速度。目前已经成为Linux系统的标准配置。</p>
+<hr>
+<h1 id="个人使用场景思考"><a href="#个人使用场景思考" class="headerlink" title="个人使用场景思考"></a>个人使用场景思考</h1><h2 id="vercel是什么？"><a href="#vercel是什么？" class="headerlink" title="vercel是什么？"></a>vercel是什么？</h2><p>Vercel 是一个用于部署静态网站和前端应用的 <strong>云平台</strong>，以其简单、高效、快速的特点被广泛用于静态博客、单页应用（SPA）和服务器端渲染（SSR）项目。</p>
+<h3 id="Vercel-的核心功能"><a href="#Vercel-的核心功能" class="headerlink" title="Vercel 的核心功能"></a>Vercel 的核心功能</h3><ol>
+<li><strong>快速部署</strong><ul>
+<li>支持通过命令行工具或直接从 GitHub、GitLab、Bitbucket 等代码托管平台自动部署项目。</li>
+<li>提交代码后，Vercel 会自动构建并上线，无需手动操作。</li>
+</ul>
+</li>
+<li><strong>全球加速</strong><ul>
+<li>Vercel 提供 <strong>全球内容分发网络 (CDN)</strong>，让你的站点能在世界各地快速加载。</li>
+<li>自动处理静态资源缓存和优化。</li>
+</ul>
+</li>
+<li><strong>自动化工作流</strong><ul>
+<li>提供自动化的 CI/CD 流程，每次代码变更都会触发重新构建和部署。</li>
+<li>支持预览功能，可以为每次 Pull Request 生成独立的预览链接。</li>
+</ul>
+</li>
+<li><strong>支持多种框架</strong><ul>
+<li>Vercel 原生支持常见的前端框架，如 <strong>Next.js</strong>（Vercel 的核心产品）、React、Vue.js、Svelte，以及 Hexo、Hugo 等静态网站生成器。</li>
+</ul>
+</li>
+<li><strong>无服务器功能</strong><ul>
+<li>支持 Serverless Functions，允许你在不管理服务器的情况下添加动态功能。</li>
+</ul>
+</li>
+</ol>
+<h3 id="Vercel-的优势"><a href="#Vercel-的优势" class="headerlink" title="Vercel 的优势"></a>Vercel 的优势</h3><ol>
+<li><strong>简单易用</strong>：用户只需关联代码仓库即可完成部署，极大降低了部署门槛。</li>
+<li><strong>性能优化</strong>：自动进行图片优化、缓存管理、CDN 分发等，提升网站速度。</li>
+<li><strong>成本友好</strong>：免费套餐适合个人开发者，提供充足的带宽和功能。</li>
+<li><strong>团队协作</strong>：支持多人协作开发，便于预览和审核代码变更。</li>
+<li><strong>即时预览</strong>：为每次代码提交生成预览地址，便于测试和分享。</li>
+</ol>
+<h3 id="在-Hexo-项目中的作用"><a href="#在-Hexo-项目中的作用" class="headerlink" title="在 Hexo 项目中的作用"></a>在 Hexo 项目中的作用</h3><p>在使用 Hexo 搭建个人博客时，Vercel 主要用于：</p>
+<ol>
+<li><strong>部署静态博客</strong>：将 Hexo 生成的静态文件上传到 Vercel，快速上线。</li>
+<li><strong>持续集成</strong>：每次更新博客内容，只需更新代码，Vercel 自动重新部署。</li>
+<li><strong>全球加速</strong>：通过 Vercel 的 CDN 网络，确保博客访问速度快且稳定。</li>
+</ol>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>Vercel 是一个强大的部署工具，专注于简化前端项目的部署和优化。对于像 Hexo 这样的静态博客，它能快速构建和上线，同时提供流畅的自动化体验，让个人开发者更专注于内容创作而非部署过程。</p>
+<h2 id="为什么要vercel？相比较其他有什么优缺点？"><a href="#为什么要vercel？相比较其他有什么优缺点？" class="headerlink" title="为什么要vercel？相比较其他有什么优缺点？"></a>为什么要vercel？相比较其他有什么优缺点？</h2><p>除了 Vercel，还有其他常用的同类型静态网站和前端应用托管平台。以下是一些常见的选项及它们与 Vercel 的对比：</p>
+<h3 id="1-常见的同类平台"><a href="#1-常见的同类平台" class="headerlink" title="1. 常见的同类平台"></a>1. 常见的同类平台</h3><ol>
+<li>Netlify</li>
+<li>GitHub Pages</li>
+<li>AWS Amplify</li>
+<li>Cloudflare Pages</li>
+<li>Render</li>
+</ol>
+<h3 id="2-平台对比"><a href="#2-平台对比" class="headerlink" title="2. 平台对比"></a>2. 平台对比</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th><strong>Vercel</strong></th>
+<th><strong>Netlify</strong></th>
+<th><strong>GitHub Pages</strong></th>
+<th><strong>AWS Amplify</strong></th>
+<th><strong>Cloudflare Pages</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>核心定位</strong></td>
+<td>专注前端项目和静态网站部署，优化 <strong>Next.js</strong> 支持</td>
+<td>静态网站和 Jamstack 应用的全栈解决方案</td>
+<td>静态网页托管，简化 GitHub 仓库发布流程</td>
+<td>全栈支持，结合 AWS 服务构建复杂应用</td>
+<td>CDN 驱动的静态网站托管</td>
+</tr>
+<tr>
+<td><strong>构建与部署</strong></td>
+<td>自动化，原生支持多框架（Next.js、React、Hexo等）</td>
+<td>自动化，支持多框架，提供丰富的插件和自定义构建</td>
+<td>手动或通过 Actions 部署，需要提前生成静态文件</td>
+<td>自动化，支持全栈和复杂构建任务</td>
+<td>自动化，针对静态文件优化</td>
+</tr>
+<tr>
+<td><strong>集成方式</strong></td>
+<td>支持 GitHub、GitLab、Bitbucket</td>
+<td>支持 GitHub、GitLab、Bitbucket</td>
+<td>仅支持 GitHub</td>
+<td>支持 GitHub、GitLab</td>
+<td>支持 GitHub</td>
+</tr>
+<tr>
+<td><strong>全球加速 (CDN)</strong></td>
+<td>全球 CDN，延迟低，专为前端优化</td>
+<td>全球 CDN，Netlify Edge 提供智能路由</td>
+<td>CDN 加速效果有限</td>
+<td>AWS CloudFront 支持，适合大型项目</td>
+<td>基于 Cloudflare 的全球 CDN，性能优越</td>
+</tr>
+<tr>
+<td><strong>免费套餐</strong></td>
+<td>免费计划强大：支持团队协作、预览部署，带宽限制宽松</td>
+<td>免费计划强大：支持插件、API 调用，带宽限制 125GB/月</td>
+<td>免费：托管基础静态文件，适合简单个人项目</td>
+<td>免费计划较基础：支持 5GB 存储和 1GB 构建缓存</td>
+<td>免费计划强大：不限带宽，Cloudflare 网络性能最佳</td>
+</tr>
+<tr>
+<td><strong>动态功能支持</strong></td>
+<td>Serverless Functions 和 API 路由</td>
+<td>Functions（支持边缘函数）</td>
+<td>无动态功能</td>
+<td>强大的 Lambda、API Gateway 集成</td>
+<td>Workers Functions 提供高效的动态处理</td>
+</tr>
+<tr>
+<td><strong>开发者体验</strong></td>
+<td>易用，专为前端开发优化，支持高级功能（如 ISR、SSR）</td>
+<td>易用，支持直观 UI 和丰富插件</td>
+<td>简单但功能有限</td>
+<td>强大但需要熟悉 AWS 生态</td>
+<td>易用，开发者友好</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>单页应用、Next.js 项目、大型静态博客</td>
+<td>Jamstack 网站、小型 Web 应用</td>
+<td>静态个人网站、小型博客</td>
+<td>企业级应用、复杂全栈项目</td>
+<td>静态博客、企业网站、需要高性能的前端项目</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="3-各平台特点总结"><a href="#3-各平台特点总结" class="headerlink" title="3. 各平台特点总结"></a>3. 各平台特点总结</h3><h4 id="1-Vercel"><a href="#1-Vercel" class="headerlink" title="1. Vercel"></a>1. Vercel</h4><ul>
+<li><strong>优点</strong>：<ul>
+<li>深度集成 Next.js，支持静态生成 (SSG)、增量静态生成 (ISR)、服务器端渲染 (SSR)。</li>
+<li>全球加速，构建速度快，开发者友好。</li>
+<li>强大的自动化工作流，适合团队协作和持续集成。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>偏重前端项目，后端服务功能相对基础。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Netlify"><a href="#2-Netlify" class="headerlink" title="2. Netlify"></a>2. Netlify</h4><ul>
+<li><strong>优点</strong>：<ul>
+<li>丰富插件生态（Netlify Plugins）扩展部署功能。</li>
+<li>支持边缘计算 (Edge Functions)，适合 Jamstack 应用。</li>
+<li>免费套餐较大方，适合中小型项目。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>对 SSR 支持不如 Vercel 出色，重点偏向静态内容。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-GitHub-Pages"><a href="#3-GitHub-Pages" class="headerlink" title="3. GitHub Pages"></a>3. GitHub Pages</h4><ul>
+<li><strong>优点</strong>：<ul>
+<li>完全免费，适合托管简单的静态博客和文档。</li>
+<li>直接与 GitHub 仓库集成，无需额外配置。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>功能有限，不支持动态功能。</li>
+<li>没有自动化 CI/CD 流程，依赖手动生成静态文件。</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-AWS-Amplify"><a href="#4-AWS-Amplify" class="headerlink" title="4. AWS Amplify"></a>4. AWS Amplify</h4><ul>
+<li><strong>优点</strong>：<ul>
+<li>与 AWS 服务深度集成，支持全栈开发（前端+后端）。</li>
+<li>高性能，适合需要动态 API 和复杂功能的项目。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>学习曲线陡峭，需要熟悉 AWS 生态。</li>
+<li>免费计划限制较多，可能适合企业级项目。</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-Cloudflare-Pages"><a href="#5-Cloudflare-Pages" class="headerlink" title="5. Cloudflare Pages"></a>5. Cloudflare Pages</h4><ul>
+<li><strong>优点</strong>：<ul>
+<li>依托 Cloudflare 的全球 CDN，性能极佳。</li>
+<li>免费计划不限带宽，非常适合高流量网站。</li>
+<li>支持动态 Workers Functions，易于添加动态功能。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>主要针对静态内容，对于复杂项目支持较弱。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-选择建议"><a href="#4-选择建议" class="headerlink" title="4. 选择建议"></a>4. 选择建议</h3><ul>
+<li><strong>个人博客或小型网站</strong>：<ul>
+<li>推荐 Vercel（功能强大、易用）或 Netlify（免费带宽充足）。</li>
+<li>如果项目非常简单，GitHub Pages 是免费又稳定的选择。</li>
+</ul>
+</li>
+<li><strong>企业项目或复杂全栈应用</strong>：<ul>
+<li>推荐 AWS Amplify（全面支持前后端）。</li>
+<li>如果需要极致性能和全球加速，Cloudflare Pages 是理想选择。</li>
+</ul>
+</li>
+<li><strong>专注前端开发、使用 Next.js</strong>：<ul>
+<li>Vercel 是首选。<br>通过对比可以看出，选择哪个平台主要取决于你的项目需求、动态功能支持程度以及团队规模。对于大多数前端开发者，<strong>Vercel</strong> 和 <strong>Netlify</strong> 是最友好的选择，而对性能要求高的可以考虑 <strong>Cloudflare Pages</strong>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="hexo个人静态博客更新部署流程"><a href="#hexo个人静态博客更新部署流程" class="headerlink" title="hexo个人静态博客更新部署流程"></a>hexo个人静态博客更新部署流程</h2><p>使用 <strong>Hexo</strong> 和 <strong>Vercel</strong> 搭建的个人博客更新上传部署流程通常如下：</p>
+<h3 id="1-初始化项目（初次搭建时）"><a href="#1-初始化项目（初次搭建时）" class="headerlink" title="1. 初始化项目（初次搭建时）"></a>1. 初始化项目（初次搭建时）</h3><h4 id="1-1-安装-Hexo-和初始化博客项目"><a href="#1-1-安装-Hexo-和初始化博客项目" class="headerlink" title="1.1 安装 Hexo 和初始化博客项目"></a>1.1 安装 Hexo 和初始化博客项目</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init my-blog</span><br><span class="line"><span class="built_in">cd</span> my-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<ul>
+<li>初始化完成后，你的博客项目结构会被创建。</li>
+</ul>
+<h4 id="1-2-生成博客内容"><a href="#1-2-生成博客内容" class="headerlink" title="1.2 生成博客内容"></a>1.2 生成博客内容</h4><ul>
+<li>使用 Hexo 的命令生成静态页面：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></li>
+<li>生成的文件会出现在 <code>public/</code> 文件夹中。</li>
+</ul>
+<h4 id="1-3-部署到-Vercel"><a href="#1-3-部署到-Vercel" class="headerlink" title="1.3 部署到 Vercel"></a>1.3 部署到 Vercel</h4><ol>
+<li>创建 Git 仓库：<ul>
+<li>将博客项目托管到 GitHub/GitLab/Bitbucket 等平台。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Initial commit&quot;</span></span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin &lt;你的仓库地址&gt;</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>连接 Vercel：<ul>
+<li>登录 <a target="_blank" rel="noopener" href="https://vercel.com/">Vercel 官方网站</a>。</li>
+<li>点击 <strong>“New Project”</strong>，关联你的 Git 仓库。</li>
+<li>在项目设置中，选择：<ul>
+<li><strong>Framework Preset</strong>：Hexo。</li>
+<li><strong>Build Command</strong>：<code>hexo generate</code>。</li>
+<li><strong>Output Directory</strong>：<code>public</code>。</li>
+</ul>
+</li>
+<li>点击部署，Vercel 会自动构建并上线你的博客。</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-日常更新和部署流程"><a href="#2-日常更新和部署流程" class="headerlink" title="2. 日常更新和部署流程"></a>2. 日常更新和部署流程</h3><h4 id="2-1-创建-更新博客内容"><a href="#2-1-创建-更新博客内容" class="headerlink" title="2.1 创建/更新博客内容"></a>2.1 创建/更新博客内容</h4><ol>
+<li><strong>新增文章</strong>：<ul>
+<li>使用 Hexo 的命令创建新文章：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>打开 <code>source/_posts</code> 目录下的 Markdown 文件，编辑内容。</li>
+</ul>
+</li>
+<li><strong>更新配置或资源</strong>：<ul>
+<li>修改 <code>_config.yml</code> 文件以调整博客设置。</li>
+<li>添加图片、CSS 等资源文件到 <code>source/</code> 目录。</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-2-本地预览"><a href="#2-2-本地预览" class="headerlink" title="2.2 本地预览"></a>2.2 本地预览</h4><ul>
+<li>在提交修改前，可以在本地启动 Hexo 服务器预览博客：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></li>
+<li>在浏览器访问 <code>http://localhost:4000</code> 查看效果。</li>
+</ul>
+<h4 id="2-3-提交代码到-Git-仓库"><a href="#2-3-提交代码到-Git-仓库" class="headerlink" title="2.3 提交代码到 Git 仓库"></a>2.3 提交代码到 Git 仓库</h4><ol>
+<li>生成静态页面：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></li>
+<li>提交更新到 Git 仓库：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Update blog content&quot;</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="2-4-自动触发-Vercel-部署"><a href="#2-4-自动触发-Vercel-部署" class="headerlink" title="2.4 自动触发 Vercel 部署"></a>2.4 自动触发 Vercel 部署</h4><ul>
+<li>每次推送到远程仓库后，Vercel 会自动触发构建流程：<ul>
+<li>Vercel 拉取最新代码。</li>
+<li>执行 <code>hexo generate</code>。</li>
+<li>将生成的静态文件部署到全球 CDN 网络。</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><p>完整的 Hexo + Vercel 博客更新和部署流程如下：</p>
+<ol>
+<li><strong>在本地创建或编辑文章，使用 <code>hexo generate</code> 生成静态文件</strong>。</li>
+<li><strong>推送代码到 Git 仓库</strong>。</li>
+<li><strong>Vercel 自动拉取代码并部署更新</strong>。</li>
+<li><strong>访问博客，查看最新内容</strong>。<blockquote>
+<p>简单的来说，vercel就是在你完成 Git 仓库的更新后，通过自动化流程拉取最新的代码，并构建、部署到全球的内容分发网络 (CDN) 上，让你的博客或网站实时更新并上线。</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37883866/article/details/105349257">超详细的Git使用教程(图文)-CSDN博客</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/li528405176/article/details/82810342">SSH简介及两种远程登录的方法-CSDN博客</a><br><a target="_blank" rel="noopener" href="https://chat.openai.com/">GPT</a></p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>Git</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://www.lazy-a.top/2024/11/28/Git/">https://www.lazy-a.top/2024/11/28/Git/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>懒总不想学习想睡觉</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2024-11-28</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2024-11-28</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A0%94%E7%8B%97/">研狗</a><a class="post-meta__tags" href="/tags/%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/">自救指南</a></div><div class="post_share"><div class="social-share" data-image="https://picbed.lazy-a.top/img/default_cover_8.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/28/%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_26.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">哈希表</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/27/%E4%B9%90%E9%91%AB-%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%EF%BC%88BLE%E5%8D%8F%E8%AE%AE%E5%BC%80%E5%8F%91%EF%BC%89%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2/" title="乐鑫-嵌入式软件工程师（BLE协议开发）实习一面"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_108.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">乐鑫-嵌入式软件工程师（BLE协议开发）实习一面</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/11/28/%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希表"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_26.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-28</div><div class="title">哈希表</div></div></a></div><div><a href="/2024/01/31/%E6%96%B0%E6%97%B6%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94-%E8%AE%BA%E8%BF%B0%E9%A2%98/" title="新时代中国特色社会主义理论与实践（一）—— 论述题"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_4.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-31</div><div class="title">新时代中国特色社会主义理论与实践（一）—— 论述题</div></div></a></div><div><a href="/2024/01/31/%E6%96%B0%E6%97%B6%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E7%AB%A0%E8%8A%82%E6%95%B4%E7%90%86%E4%B8%8B/" title="新时代中国特色社会主义理论与实践（三）——章节整理下"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_90.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-31</div><div class="title">新时代中国特色社会主义理论与实践（三）——章节整理下</div></div></a></div><div><a href="/2024/01/31/%E6%96%B0%E6%97%B6%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E7%AB%A0%E8%8A%82%E6%95%B4%E7%90%86%E4%B8%8A/" title="新时代中国特色社会主义理论与实践（二）——章节整理上"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_90.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-31</div><div class="title">新时代中国特色社会主义理论与实践（二）——章节整理上</div></div></a></div><div><a href="/2024/01/31/%E8%87%AA%E7%84%B6%E8%BE%A9%E8%AF%81%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E8%AE%BA%E8%BF%B0%E9%A2%98/" title="自然辩证法（一）——论述题"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/fj1.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-31</div><div class="title">自然辩证法（一）——论述题</div></div></a></div><div><a href="/2024/01/31/%E8%87%AA%E7%84%B6%E8%BE%A9%E8%AF%81%E6%B3%95%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E7%AB%A0%E8%8A%82%E6%95%B4%E7%90%86/" title="自然辩证法（三）——章节整理"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_8.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-31</div><div class="title">自然辩证法（三）——章节整理</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="author_top is-center"><div class="card-info-avatar"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/chengxuyuan.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-status-box"><div class="author-status"><g-emoji class="g-emoji" alias="palm_tree" fallback-src="https://lskypro.acozycotage.net/LightPicture/2022/12/fe1dc0402e623096.jpg">🐟</g-emoji><span>认真摸鱼中</span></div></div></div><div class="author-info__name">懒总不想学习想睡觉</div><div class="author-info__description">Lazyの安全屋</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/0K2333/"><i class="fab fa-github"></i><span>欢迎来到我的秘密基地</span><i class="faa-passing animated" style="padding-left:20px;display:inline-block;vertical-align:middle;"><svg class="icon" style="height:28px;width:28px;fill:currentColor;position:relative;top:5px"><use xlink:href="#icon-huaxue_fuzhi-"></use></svg></i></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://picbed.lazy-a.top/link/wechat.jpg" target="_blank" title="微信"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-weixin2"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://picbed.lazy-a.top/link/QQ.jpg" target="_blank" title="QQ"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-QQ1"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://blog.csdn.net/qq_46562662?spm=1010.2135.3001.5343" target="_blank" title="CSDN"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-C-"></use></svg></a><a class="social-icon faa-parent animated-hover" href="mailto:2364354805@qq.com" target="_blank" title="邮箱"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-youxiang"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://github.com/0K2333" target="_blank" title="Github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-github"></use></svg></a></div></div><div class="bbTimeList container" id="bbTimeList"><a class="faa-parent animated-hover"><svg class="faa-tada icon" onclick="pjax.loadUrl(&quot;/personal/daodao/&quot;)" title="即刻" style="height:25px;width:25px;fill:currentColor;position:relative;top:5px" aria-hidden="true"><use xlink:href="#icon-qingwa"></use></svg></a><div class="swiper-container swiper-no-swiping" id="bbtalk" tabindex="-1"><div class="swiper-wrapper" id="bber-talk" onclick="pjax.loadUrl(&quot;/personal/daodao/&quot;)"><div class="li-style swiper-slide">好久没更新了。。。有点忘了怎么更新了。。。那就祝自己水逆退散，一切顺利，得偿所愿吧☺️☺️☺️</div><div class="li-style swiper-slide">还有3.5h回家；英语汇报完了；只有一场开卷的考试；冰箱买了；饮料屯了；工位打扫好了双屏装了；幸福在此刻得到了具象化嘿嘿嘿🤭幸福的不用社交的自闭的两点一线的研二我来啦！</div><div class="li-style swiper-slide">好久没更新了，又到了考试周，难崩，痛苦，想死！！！！！又开始想疯狂购物了，夏天该在工位屯点啥喝捏？🤔有点想自学气泡水了🤤</div><div class="li-style swiper-slide">md！！什么报告需要我用价值两万的眼睛去写！！！好愤怒啊！！！！要是不能恢复到1.5！我恨这门课！！除非她给我A（👉👈）</div><div class="li-style swiper-slide">《真理篇：如何开心》...真的每次一到周一，就觉得人生也就那样了，想开了也想噶了🥴真想永远活在周末啊··· [图片]</div><div class="li-style swiper-slide">谁懂...看到后面宫村把头发剪了...我真的比他兄弟还心痛😭我心中狼尾top1啊，只能永远的活在第一集了嘛😭真想活在二次元啊🤧（ps：《崛与宫村》真的好看！我宣布宫村是继碓冰拓海和巴卫之后第三爱的男主！） [图片]</div><div class="li-style swiper-slide">刚刚被一只小小柴坚定的选择了捏！！心软软┭┮﹏┭┮狗狗是天使天使天使！！！（呲溜呲溜呲溜）</div><div class="li-style swiper-slide">终于找到了让我一直念念不忘的大富翁副本原来是出自《地球上线》这本小说！“在大富翁里，如果没有自由跳转，第一个格子玩家掷到的可能性最低”，所以通关格是第一格而非最后一格的这个思维真的惊艳了我好久！！看了那么多本无限流，还是觉得地上是最烧脑的。怀念当初拿着纸笔理规则的日子...（因为本人不喜欢二刷小说👉👈） [图片]</div><div class="li-style swiper-slide">“为自己赢一次”这种主题虽然感觉中二了点，但是我真的很吃这一套😭喜欢今年春节档的电影，又搞笑又热血又感动！</div><div class="li-style swiper-slide">我妈怕冷不怕热，我爸怕热不怕冷...所以到我怎么就变成又怕热又怕冷了🤔...一定不是我不锻炼的原因！！😳</div></div></div><i class="bber-gotobb fas fa-arrow-circle-right" onclick="pjax.loadUrl(&quot;/personal/daodao/&quot;)" title="查看全文"></i></div><script src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js" data-pjax=""></script><div class="card-widget" id="newYear"><div class="item-headline"><i></i><span></span></div><div class="item-content"><div id="newYear-main"><div class="mask"></div> <p class="title"></p> <div class="newYear-time"></div> <p class="today" style="text-align: right;"></p> </div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">2.</span> <span class="toc-text">Git是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">核心概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD%E8%A7%A3%E8%AF%BB"><span class="toc-number">2.3.</span> <span class="toc-text">常见术语解读</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">2.4.</span> <span class="toc-text">Git的优势</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E4%B8%8ESVN%E5%AF%B9%E6%AF%94"><span class="toc-number">3.</span> <span class="toc-text">Git与SVN对比</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SVN"><span class="toc-number">3.1.</span> <span class="toc-text">SVN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">3.2.</span> <span class="toc-text">Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B%E5%8F%8A%E6%8C%87%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text">Git配置流程及指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">4.1.</span> <span class="toc-text">环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96Git%E4%BB%93%E5%BA%93"><span class="toc-number">4.2.</span> <span class="toc-text">获取Git仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">4.2.1.</span> <span class="toc-text">本地初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%85%8B%E9%9A%86"><span class="toc-number">4.2.2.</span> <span class="toc-text">远程克隆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E3%80%81%E6%9A%82%E5%AD%98%E5%8C%BA%E3%80%81%E7%89%88%E6%9C%AC%E5%BA%93"><span class="toc-number">4.3.</span> <span class="toc-text">工作目录、暂存区、版本库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%8A%B6%E6%80%81"><span class="toc-number">4.4.</span> <span class="toc-text">文件的两种状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">4.5.</span> <span class="toc-text">本地仓库操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">4.6.</span> <span class="toc-text">远程仓库操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E5%88%86%E6%94%AF"><span class="toc-number">4.7.</span> <span class="toc-text">Git分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E6%A0%87%E7%AD%BE"><span class="toc-number">4.8.</span> <span class="toc-text">Git标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IntelliJ-IDEA%E4%BD%BF%E7%94%A8Git"><span class="toc-number">4.9.</span> <span class="toc-text">IntelliJ IDEA使用Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BB%9A%E4%BB%A3%E7%A0%81"><span class="toc-number">4.10.</span> <span class="toc-text">回滚代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">GitHub配置流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SSH%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">5.1.</span> <span class="toc-text">SSH是什么</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%80%9D%E8%80%83"><span class="toc-number">6.</span> <span class="toc-text">个人使用场景思考</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vercel%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">vercel是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vercel-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-number">6.1.1.</span> <span class="toc-text">Vercel 的核心功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vercel-%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">6.1.2.</span> <span class="toc-text">Vercel 的优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-Hexo-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">6.1.3.</span> <span class="toc-text">在 Hexo 项目中的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">6.1.4.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81vercel%EF%BC%9F%E7%9B%B8%E6%AF%94%E8%BE%83%E5%85%B6%E4%BB%96%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-number">6.2.</span> <span class="toc-text">为什么要vercel？相比较其他有什么优缺点？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%90%8C%E7%B1%BB%E5%B9%B3%E5%8F%B0"><span class="toc-number">6.2.1.</span> <span class="toc-text">1. 常见的同类平台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B9%B3%E5%8F%B0%E5%AF%B9%E6%AF%94"><span class="toc-number">6.2.2.</span> <span class="toc-text">2. 平台对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%90%84%E5%B9%B3%E5%8F%B0%E7%89%B9%E7%82%B9%E6%80%BB%E7%BB%93"><span class="toc-number">6.2.3.</span> <span class="toc-text">3. 各平台特点总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Vercel"><span class="toc-number">6.2.3.1.</span> <span class="toc-text">1. Vercel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Netlify"><span class="toc-number">6.2.3.2.</span> <span class="toc-text">2. Netlify</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-GitHub-Pages"><span class="toc-number">6.2.3.3.</span> <span class="toc-text">3. GitHub Pages</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-AWS-Amplify"><span class="toc-number">6.2.3.4.</span> <span class="toc-text">4. AWS Amplify</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Cloudflare-Pages"><span class="toc-number">6.2.3.5.</span> <span class="toc-text">5. Cloudflare Pages</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="toc-number">6.2.4.</span> <span class="toc-text">4. 选择建议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B"><span class="toc-number">6.3.</span> <span class="toc-text">hexo个人静态博客更新部署流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%88%9D%E6%AC%A1%E6%90%AD%E5%BB%BA%E6%97%B6%EF%BC%89"><span class="toc-number">6.3.1.</span> <span class="toc-text">1. 初始化项目（初次搭建时）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E5%AE%89%E8%A3%85-Hexo-%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE"><span class="toc-number">6.3.1.1.</span> <span class="toc-text">1.1 安装 Hexo 和初始化博客项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E5%86%85%E5%AE%B9"><span class="toc-number">6.3.1.2.</span> <span class="toc-text">1.2 生成博客内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E9%83%A8%E7%BD%B2%E5%88%B0-Vercel"><span class="toc-number">6.3.1.3.</span> <span class="toc-text">1.3 部署到 Vercel</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%97%A5%E5%B8%B8%E6%9B%B4%E6%96%B0%E5%92%8C%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B"><span class="toc-number">6.3.2.</span> <span class="toc-text">2. 日常更新和部署流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%88%9B%E5%BB%BA-%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%86%85%E5%AE%B9"><span class="toc-number">6.3.2.1.</span> <span class="toc-text">2.1 创建&#x2F;更新博客内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="toc-number">6.3.2.2.</span> <span class="toc-text">2.2 本地预览</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%88%B0-Git-%E4%BB%93%E5%BA%93"><span class="toc-number">6.3.2.3.</span> <span class="toc-text">2.3 提交代码到 Git 仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-%E8%87%AA%E5%8A%A8%E8%A7%A6%E5%8F%91-Vercel-%E9%83%A8%E7%BD%B2"><span class="toc-number">6.3.2.4.</span> <span class="toc-text">2.4 自动触发 Vercel 部署</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">6.3.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">7.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024.1.12 - 2024 By 懒总不想学习想睡觉</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-yueliang"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="share" type="button" title="分享链接" onclick="share()"><i class="fas fa-share-nodes"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/js/tw_cn.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.lazy-a.top/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+        setTimeout(function(){
+          let tk_comment = document.querySelectorAll('.tk-comments-container .tk-comment')
+          if (tk_comment.length > 0) {
+            let html = `<div class="swiper-wrapper">`
+            for (let i = 0; i < tk_comment.length; i++) {
+              let tk_id = tk_comment[i].getAttribute('id') || ''
+              let tk_nick = tk_comment[i].querySelector('.tk-nick')?.innerText || ''
+              let tk_href = tk_comment[i].querySelector('.tk-nick')?.href || ''
+              let tk_avatar = tk_comment[i].querySelector('.tk-avatar-img')?.src || ''
+              let tk_time = tk_comment[i].querySelector('.tk-time')?.innerText || ''
+              let tk_city = tk_comment[i].querySelector('.tk-extras .tk-extra:first-child span:last-child')?.innerText || ''
+              let tk_content = tk_comment[i].querySelector('.tk-content>span:last-child')?.innerHTML || ''
+              tk_content = tk_content.replace(/\n/g, '') // replace \n
+              tk_content = tk_content.replace(/<blockquote>.*?<\/blockquote>/gi, '') // replace blockquote
+              tk_content = tk_content.replace(/<pre.*?<\/pre>/gi, '[代码]') // replace code
+              html += `
+                <div class="swiper-slide">
+                  <div class="comment-barrage-item">
+                    <div class="barrage-info">
+                      <a class="barrage-title" title="跳转至评论区" href="#post-comment">热评</a>
+                      <a href="${tk_href ? tk_href + '" target="_blank" rel="noopener noreferrer" title="访问 '+ tk_nick +'"' : 'javascript:void(0);"'}>
+                        <img class="barrage-avatar" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="${tk_avatar}">
+                      </a>
+                      <span class="barrage-nick">${tk_nick}</span>
+                      <span class="barrage-city">${tk_city}</span>
+                      <span class="barrage-time">${tk_time}</span>
+                      <a class="barrage-close" onclick="eurkon.switchCommentBarrage()" title="隐藏热评"><i class="fa-solid fa-xmark"></i></a>
+                    </div>
+                    <div class="barrage-content">
+                      <a title="跳转至该评论" href="#${tk_id}">${tk_content}</a>
+                    </div>
+                  </div>
+                </div>`
+            }
+            html += '</div>'
+            let barrageContainer = document.getElementById('comment-barrage') || document.createElement('div')
+            barrageContainer.id = 'comment-barrage'
+            barrageContainer.innerHTML = html
+            barrageContainer.style.display = window.localStorage.getItem('commentBarrageDisplay') === 'false' ? 'none' : 'block'
+            document.getElementById('post-comment').appendChild(barrageContainer)
+            var barrageSwiper = new Swiper('#comment-barrage', {
+              direction: 'vertical',
+              loop: true,
+              mousewheel: true,
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: true,
+              }
+            })
+            barrageContainer.onmouseenter = function () {
+              barrageSwiper.autoplay.stop()
+            };
+            barrageContainer.onmouseleave = function () {
+              barrageSwiper.autoplay.start()
+            };
+          }
+        }, 1000)        
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.jsdelivr.net/npm/twikoo@1.6.29/dist/twikoo.all.min.js').then(init)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.lazy-a.top/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+      GLOBAL_CONFIG_SITE.isPost && getCount()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo.lazy-a.top/',
+        region: '',
+        pageSize: 5,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo@1.6.29/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async src="https://cdn1.tianli0.top/npm/vue@2.6.14/dist/vue.min.js"></script><script async src="https://cdn1.tianli0.top/npm/element-ui@2.15.6/lib/index.js"></script><script async src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script><script defer type="text/javascript" src="https://cdn1.tianli0.top/npm/sweetalert2@8.19.0/dist/sweetalert2.all.js"></script><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script defer src="https://cdn1.tianli0.top/gh/nextapps-de/winbox/dist/winbox.bundle.min.js"></script><script async src="//at.alicdn.com/t/c/font_4411230_2edklipxnm8.js"></script><script async src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><canvas id="snow"></canvas><script async src="/js/snow.js"></script><script defer src="/js/fomal.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script><script defer src="/js/cursor.js"></script><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script src="/js/emoji.js"></script><script src="/js/kslink.js"></script><script src="/js/share.js"></script><script src="/js/sun_moon.js" async></script><script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script><script async data-pjax src="/js/txmap.js"></script><script src="/js/runtime.js"></script><script defer src="/js/light.js"></script><script async src="/js/console.js"></script><script async src="/js/fps.js"></script><script async src="/js/title.js"></script><script async src="/js/nav.js"></script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script src="/js/weather.js"></script><script async data-pjax src="/js/newYear.js"></script><script src="/js/mingan.js"></script><script src="/js/twikoo.js"></script><script async data-pjax src="/js/essay_page.js"></script><script async data-pjax src="/js/waterfall.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="50" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.22.0/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.63.0/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js?v=4.12.0"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.lazy-a.top/categories/研狗/学习笔记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">✍🏻 Lazyの催眠日常 (8)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.lazy-a.top/categories/随笔/山川河流/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🧗🏻‍♀️ Lazyの快乐一刻 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.lazy-a.top/categories/随笔/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 Lazyの胡思乱想 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="https://www.lazy-a.top/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = 'ed4c0d90274748e48fcf3a294f2970fd';
+  var gaud_map_key = '1a9a15d603e927f2bf7e669611704c0c';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.12.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/0K2333" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://unpkg.zhimg.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/11/27/乐鑫-嵌入式软件工程师（BLE协议开发）实习一面/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_108.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-11-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/11/27/乐鑫-嵌入式软件工程师（BLE协议开发）实习一面/&quot;);" href="javascript:void(0);" alt="">乐鑫-嵌入式软件工程师（BLE协议开发）实习一面</a><div class="blog-slider__text">感受到了“温柔一刀”，挂的最体面的一场🥹</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/11/27/乐鑫-嵌入式软件工程师（BLE协议开发）实习一面/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/11/27/NVIDIA-Infrastructure-Tool-Development-Intern/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_106.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-11-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/11/27/NVIDIA-Infrastructure-Tool-Development-Intern/&quot;);" href="javascript:void(0);" alt="">NVIDIA-Infrastructure-Tool-Development-Intern</a><div class="blog-slider__text">除了“硬核”，没什么好说的。一生奋斗目标✊！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/11/27/NVIDIA-Infrastructure-Tool-Development-Intern/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/11/27/AMD-DFT（AI-机器学习）实习面试/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_160.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-11-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/11/27/AMD-DFT（AI-机器学习）实习面试/&quot;);" href="javascript:void(0);" alt="">AMD_DFT（AI&amp;机器学习）实习面试</a><div class="blog-slider__text">面试挺友好的，两轮，一轮手撕，二轮纯项目面，工作还是没太听懂，结果没出呢🤔</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/11/27/AMD-DFT（AI-机器学习）实习面试/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/01/31/新时代中国特色社会主义理论与实践（一）——-论述题/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_4.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-01-31</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/01/31/新时代中国特色社会主义理论与实践（一）——-论述题/&quot;);" href="javascript:void(0);" alt="">新时代中国特色社会主义理论与实践（一）—— 论述题</a><div class="blog-slider__text">上海交通大学2023年（研一）新时代中国特色社会主义理论与实践期末考知识点整理。谢谢喜欢！欢迎交流！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/01/31/新时代中国特色社会主义理论与实践（一）——-论述题/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/01/31/云南七天六夜话痨版攻略（吐槽）/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/dm6.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-01-31</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/01/31/云南七天六夜话痨版攻略（吐槽）/&quot;);" href="javascript:void(0);" alt="">云南七天六夜话痨版攻略（吐槽）</a><div class="blog-slider__text">我永远热爱云南！！！真想在云南养老啊🏕️</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/01/31/云南七天六夜话痨版攻略（吐槽）/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/01/31/自然辩证法（三）——章节整理/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_8.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-01-31</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/01/31/自然辩证法（三）——章节整理/&quot;);" href="javascript:void(0);" alt="">自然辩证法（三）——章节整理</a><div class="blog-slider__text">上海交通大学2023年（研一）自然辩证法知识点整理（自用版，轻喷），欢迎大家前来交流</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/01/31/自然辩证法（三）——章节整理/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/01/31/新时代中国特色社会主义理论与实践（三）——章节整理下/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_90.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-01-31</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/01/31/新时代中国特色社会主义理论与实践（三）——章节整理下/&quot;);" href="javascript:void(0);" alt="">新时代中国特色社会主义理论与实践（三）——章节整理下</a><div class="blog-slider__text">上海交通大学2023年（研一）新时代中国特色社会主义理论与实践期末考知识点整理。谢谢喜欢！欢迎交流！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/01/31/新时代中国特色社会主义理论与实践（三）——章节整理下/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/01/31/自然辩证法（二）——选择题-简答题/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_52.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-01-31</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/01/31/自然辩证法（二）——选择题-简答题/&quot;);" href="javascript:void(0);" alt="">自然辩证法（二）——选择题+简答题</a><div class="blog-slider__text">上海交通大学2023年（研一）自然辩证法知识点整理（自用版，轻喷），欢迎大家前来交流</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/01/31/自然辩证法（二）——选择题-简答题/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/01/31/新时代中国特色社会主义理论与实践（二）——章节整理上/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_90.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-01-31</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/01/31/新时代中国特色社会主义理论与实践（二）——章节整理上/&quot;);" href="javascript:void(0);" alt="">新时代中国特色社会主义理论与实践（二）——章节整理上</a><div class="blog-slider__text">上海交通大学2023年（研一）新时代中国特色社会主义理论与实践期末考知识点整理。谢谢喜欢！欢迎交流！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/01/31/新时代中国特色社会主义理论与实践（二）——章节整理上/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/01/31/自然辩证法（一）——论述题/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/fj1.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-01-31</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/01/31/自然辩证法（一）——论述题/&quot;);" href="javascript:void(0);" alt="">自然辩证法（一）——论述题</a><div class="blog-slider__text">上海交通大学2023年（研一）自然辩证法知识点整理（自用版，轻喷），欢迎大家前来交流</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/01/31/自然辩证法（一）——论述题/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/11/28/哈希表/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_26.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-11-28</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/11/28/哈希表/&quot;);" href="javascript:void(0);" alt="">哈希表</a><div class="blog-slider__text">哈希表是一种键值对（key-value）数据结构，具有高效的查找、插入和删除性能。它广泛用于需要快速访问数据的场景，例如字典、缓存、数据库索引等</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/11/28/哈希表/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2024/11/28/Git/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://picbed.lazy-a.top/img/default_cover_8.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-11-28</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2024/11/28/Git/&quot;);" href="javascript:void(0);" alt="">Git</a><div class="blog-slider__text">英伟达二面被三个面试官轮流拷打，我学，这就学✊！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2024/11/28/Git/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__bounceInLeft');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '500ms');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__bounceInRight');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":false},"log":false});</script></body></html>
